@@ -1,0 +1,63 @@
+models:
+  Brand:
+    name: string:unique
+
+  Category:
+    name: string:unique
+
+  Product:
+    name: string:index
+    price: decimal:10,2 index
+    description: text
+    image: string nullable
+    stock_quantity: integer default:0 index
+    brand_id: id foreign:brands
+    weight_id: id foreign:weights
+    country_id: id foreign:countries
+    category_id: id foreign:categories
+    acidity_level_id: id foreign:acidity_levels
+    sweetness_level_id: id foreign:sweetness_levels
+    bitterness_level_id: id foreign:bitterness_levels
+    processing_method_id: id foreign:processing_methods
+    deleted_at: timestamp nullable
+    timestamps
+
+  Order:
+    user_id: id foreign:users
+    total_amount: decimal:10,2
+    order_status_id: id foreign:order_statuses
+    timestamps
+
+  OrderItem:
+    order_id: id foreign:orders
+    product_id: id foreign:products
+    quantity: integer
+    price_at_order_time: decimal:10,2
+    timestamps
+
+  User:
+    name: string
+    phone_number: string nullable unique
+    email: string unique
+    email_verified_at: timestamp nullable
+    password: string
+    is_admin: boolean default:false
+    remember_token: string
+    deleted_at: timestamp nullable
+    timestamps
+
+controllers:
+  Brand:
+    resource
+
+  Category:
+    resource
+
+  Product:
+    resource
+
+  Order:
+    resource
+
+  User:
+    resource

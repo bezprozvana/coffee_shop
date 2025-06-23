@@ -1,0 +1,85 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Кастомні кольори */
+@layer components {
+    .bg-coffee-600 {
+        background-color: #6F4E37;
+    }
+    .hover:bg-coffee-700:hover {
+        background-color: #5D3E2E;
+    }
+    .text-coffee-600 {
+        color: #6F4E37;
+    }
+    .hover:text-coffee-700:hover {
+        color: #5D3E2E;
+    }
+    .border-coffee-500 {
+        border-color: #6F4E37;
+    }
+    .ring-coffee-500 {
+        --tw-ring-color: #6F4E37;
+    }
+}
+
+
+.comparison-table {
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.comparison-table th {
+    background-color: #f8f1e9;
+    font-weight: 600;
+    color: #3E2723;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+.comparison-table tr:hover td {
+    background-color: #f9f9f9;
+}
+
+/* Стилі для кнопок порівняння */
+.comparison-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #6F4E37;
+    color: white;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.comparison-btn:hover {
+    background-color: #5a3c2a;
+    transform: translateY(-1px);
+}
+
+.comparison-btn svg {
+    margin-right: 0.5rem;
+}
+
+/* Адаптивні стилі */
+@media (max-width: 768px) {
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .comparison-product {
+        min-width: 200px;
+    }
+}

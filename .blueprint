@@ -1,0 +1,68 @@
+created:
+    - app/Http/Controllers/BrandController.php
+    - app/Http/Controllers/CategoryController.php
+    - app/Http/Controllers/ProductController.php
+    - app/Http/Controllers/OrderController.php
+    - app/Http/Controllers/UserController.php
+    - database/factories/BrandFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/ProductFactory.php
+    - database/factories/OrderFactory.php
+    - database/factories/OrderItemFactory.php
+    - database/factories/UserFactory.php
+    - database/migrations/2025_04_15_004501_create_brands_table.php
+    - database/migrations/2025_04_15_004502_create_categories_table.php
+    - database/migrations/2025_04_15_004503_create_products_table.php
+    - database/migrations/2025_04_15_004504_create_orders_table.php
+    - database/migrations/2025_04_15_004505_create_order_items_table.php
+    - database/migrations/2025_04_15_004506_create_users_table.php
+    - app/Models/Brand.php
+    - app/Models/Category.php
+    - app/Models/Product.php
+    - app/Models/Order.php
+    - app/Models/OrderItem.php
+    - app/Models/User.php
+    - tests/Feature/Http/Controllers/BrandControllerTest.php
+    - tests/Feature/Http/Controllers/CategoryControllerTest.php
+    - tests/Feature/Http/Controllers/ProductControllerTest.php
+    - tests/Feature/Http/Controllers/OrderControllerTest.php
+    - tests/Feature/Http/Controllers/UserControllerTest.php
+    - app/Http/Requests/BrandStoreRequest.php
+    - app/Http/Requests/BrandUpdateRequest.php
+    - app/Http/Requests/CategoryStoreRequest.php
+    - app/Http/Requests/CategoryUpdateRequest.php
+    - app/Http/Requests/ProductStoreRequest.php
+    - app/Http/Requests/ProductUpdateRequest.php
+    - app/Http/Requests/OrderStoreRequest.php
+    - app/Http/Requests/OrderUpdateRequest.php
+    - app/Http/Requests/UserStoreRequest.php
+    - app/Http/Requests/UserUpdateRequest.php
+    - resources/views/brand/index.blade.php
+    - resources/views/brand/create.blade.php
+    - resources/views/brand/show.blade.php
+    - resources/views/brand/edit.blade.php
+    - resources/views/category/index.blade.php
+    - resources/views/category/create.blade.php
+    - resources/views/category/show.blade.php
+    - resources/views/category/edit.blade.php
+    - resources/views/product/index.blade.php
+    - resources/views/product/create.blade.php
+    - resources/views/product/show.blade.php
+    - resources/views/product/edit.blade.php
+    - resources/views/order/index.blade.php
+    - resources/views/order/create.blade.php
+    - resources/views/order/show.blade.php
+    - resources/views/order/edit.blade.php
+    - resources/views/user/index.blade.php
+    - resources/views/user/create.blade.php
+    - resources/views/user/show.blade.php
+    - resources/views/user/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    Brand: { name: 'string:unique' }
+    Category: { name: 'string:unique' }
+    Product: { name: 'string:index', price: 'decimal:10,2 index', description: text, image: 'string nullable', stock_quantity: 'integer default:0 index', brand_id: 'id foreign:brands', weight_id: 'id foreign:weights', country_id: 'id foreign:countries', category_id: 'id foreign:categories', acidity_level_id: 'id foreign:acidity_levels', sweetness_level_id: 'id foreign:sweetness_levels', bitterness_level_id: 'id foreign:bitterness_levels', processing_method_id: 'id foreign:processing_methods', deleted_at: 'timestamp nullable', timestamps: timestamps }
+    Order: { user_id: 'id foreign:users', total_amount: 'decimal:10,2', order_status_id: 'id foreign:order_statuses', timestamps: timestamps }
+    OrderItem: { order_id: 'id foreign:orders', product_id: 'id foreign:products', quantity: integer, price_at_order_time: 'decimal:10,2', timestamps: timestamps }
+    User: { name: string, phone_number: 'string nullable unique', email: 'string unique', email_verified_at: 'timestamp nullable', password: string, is_admin: 'boolean default:false', remember_token: string, deleted_at: 'timestamp nullable', timestamps: timestamps }
